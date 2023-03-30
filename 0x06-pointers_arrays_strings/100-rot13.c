@@ -9,25 +9,19 @@
 
 char *rot13(char *s)
 {
-	int i = 0, j;
+	unsigned int n1;
 
-	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	if (n < 0)
+	{
+		n1 = -n;
+		_putchar('-');
+	} else
+	{
+		n1 = n;
+	}
 
-	while (s[i] != '\0')
-	{
-	j = 0;
-	while (a[j] != '\0')
-	{
-	if (s[i] == a[j])
-	{
-		s[i] = b[j];
-		break;
-	}
-	j++;
-	}
-	i++;
-	}
-	return (s);
+	if (n1 / 10)
+		print_number(n1 / 10);
 
+	_putchar((n1 % 10) + '0');
 }
