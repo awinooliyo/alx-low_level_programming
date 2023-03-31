@@ -4,24 +4,28 @@
  * rot13 - encodes a string in rot13
  * @s: string to be encoded
  *
- * Return: the resulting string (s).
+ * Return: the resulting string
  */
 
-void print_number(int n)
+char *rot13(char *s)
 {
-	unsigned int n1;
+	int i, j;
 
-	if (n < 0)
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		n1 = -n;
-		_putchar('-');
-	} else
-	{
-		n1 = n;
+		for (j = 0; a[j] != '\0'; j++)
+		{
+			if (s[i] == a[j])
+			{
+				s[i] = b[j];
+				break;
+			}
+		}
 	}
 
-	if (n1 / 10)
-		print_number(n1 / 10);
-
-	_putchar((n1 % 10) + '0');
+	return (s);
 }
+
