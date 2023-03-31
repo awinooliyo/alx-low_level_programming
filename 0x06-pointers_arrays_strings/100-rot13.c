@@ -7,7 +7,7 @@
  * Return: the resulting string (s).
  */
 
-char *rot13(char *s)
+void print_number(int n)
 {
 	unsigned int n1;
 
