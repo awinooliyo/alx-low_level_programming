@@ -3,7 +3,7 @@
 /**
 * _strpbrk - Searches for any of a set of bytes.
 *@s: the string to be scanned.
-*accept: string containing the characters to match.
+*@accept: string containing the characters to match.
 *Return: pointer to the byte in s matching one of the bytes
 * in accept or NULL if no such bye is found.
 *
