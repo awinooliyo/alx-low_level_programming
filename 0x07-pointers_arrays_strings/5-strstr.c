@@ -4,8 +4,7 @@
 *_strstr - locates a substring.
 *@haystack: the strong to be scanned.
 *@needle: the string to be searched with-in hystack string.
-*Return: a pointer to the beginning of the located substring,
-* or NULL if the substring is not found.
+*Return: a pointer to beginning of substring, or NULL if not found.
 *
 */
 
