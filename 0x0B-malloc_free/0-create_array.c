@@ -28,11 +28,11 @@ char *create_array(unsigned int size, char c)
 
 	while (i < size)
 	{
-		ptr[i] = c;
+		*(ptr + i) = c;
 		i++;
 	}
 
-	*(ptr + 1) = '\0';
+	*(ptr + i) = '\0';
 
 	return (ptr);
 }
