@@ -26,12 +26,13 @@ char *create_array(unsigned int size, char c)
 		return (0);
 	}
 
-	for (i = 0; i < size; i++)
+	while (i < size)
 	{
 		ptr[i] = c;
+		i++;
 	}
 
-	*ptr = '\0';
+	*(ptr + 1) = '\0';
 
 	return (ptr);
 }
