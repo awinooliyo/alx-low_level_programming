@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
 * _calloc - allocates memory of an array using malloc.
@@ -12,7 +12,7 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
-	void *p;
+	char *p;
 
 	if (nmemb == 0 || size == 0)
 	{
@@ -26,9 +26,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	for (i = 0; i < (nmemb * size); i++)
+	for (i = 0; i < nmemb; i++)
 	{
-		*((char *)(p) + 1) = 0;
+		p[i] = 0;
 	}
-	return (p);
+	return ((void *)p);
 }
