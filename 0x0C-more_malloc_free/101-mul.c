@@ -119,7 +119,6 @@ int main(int argc, char *argv[])
 	{
 		for (ti = 0; e[ti]; ti++)
 			_putchar(e[ti]);
-		free(a);
 		exit(98);
 	}
 	for (l1 = 0; argv[1][l1]; l1++)
