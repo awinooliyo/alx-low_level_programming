@@ -38,7 +38,7 @@ void _print(char *str, int l)
 
 char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 {
-	int i, k, mul, mulrem, add, addrem;
+	int j, k, mul, mulrem, add, addrem;
 
 	mulrem = addrem = 0;
 	for (j = num_index, k = dest_index; j >= 0; j--, k--)
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 		free(a);
 		exit(98);
 	}
-	for l1 = 0; argv[1][l1]; l1++)
+	for (l1 = 0; argv[1][l1]; l1++)
 		;
 	for (l2 = 0; argv[2][l2]; l2++)
 		;
@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
 	init(a, ln - 1);
 	for (ti = l2 - 1, i = 0; ti >= 0; ti--, i++)
 	{
-		t = nul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
+		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
 		if (t == NULL)
 		{
 			for (ti = 0; e[ti]; ti++)
@@ -147,6 +147,6 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	_print(a, ln - l);
+	_print(a, ln - 1);
 	return (0);
 }
