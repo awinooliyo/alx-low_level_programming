@@ -1,19 +1,15 @@
-section .data
-	hello db 'Hello, Holberton!', 0
-	format db '%s\n',0
+SECTION .data
+msg:	db "Hello, Holberton!", 0
+fmt:	db "%s\n",0
 
-section .text
+	SECTION .text
+	extern printf
 	global main
-
 main:
-	; Prepare arguments for printf
-	mov rdi, format; first argument: format string
-	mov rsi, hello; second argument: pointer to hello string
-	xor eax, eax; clear eax register for printf
-
-	; Call printf function
+	mov esi, msg
+	mov edi, fmt
+	mov eax, 0
 	call printf
 
-	; Exit program with status 0
-	mov eax, o
+	mov eax, 0
 	ret
