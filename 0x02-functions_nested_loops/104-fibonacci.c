@@ -9,28 +9,41 @@
 int main(void)
 {
 	/* initializing variables */
-	int prev = 1;
-	int current = 2;
-	int count = 2;
+	unsigned long int i = 1;
+	unsigned long int j = 1;
+	unsigned long int k = 2;
+	unsigned long int j1 = 0;
+	unsigned long int j2 = 0;
+	unsigned long int k1 = 0;
+	unsigned long int k2 = 0;
 
-	/* print the first two numbers */
-	printf("%d, %d, ", prev, current);
+	/* print the first number */
+	printf("%lu, ", j);
 
 	/* generate the remaining numbers */
-	while (count < 98)
+	while (i < 98)
 	{
 		/* calculating the next number */
+		printf("%lu, ", j);
+		k = k + j;
+		j = k - j;
+
+
 		int next_num = prev + current;
 
-		/* printing the next number */
-		printf("%d, ", next_num);
+		/* splitting the numbers into 9 digit chunks for larger values*/
 
-		/* updating the variables for the next itaration */
-		prev = current;
-		current = next_num;
-		count++;
+		if (k >= 1000000000)
+		{
+			k1 = j1 + k / 1000000000;
+			k2 = k % 1000000000;
+			j1 = k1 - j1;
+			j2 = k2 - j2;
+		}
+
+		i++;
 	}
-	printf("\n"); /* printing new line at the end */
+	printf("%lu\n", k); /* printing the last number and new line at the end */
 
 	return (0);
 }
