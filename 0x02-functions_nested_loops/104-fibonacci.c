@@ -28,9 +28,6 @@ int main(void)
 		k = k + j;
 		j = k - j;
 
-
-		int next_num = prev + current;
-
 		/* splitting the numbers into 9 digit chunks for larger values*/
 
 		if (k >= 1000000000)
