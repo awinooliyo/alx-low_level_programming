@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
 * sum_listint - calculates the sum of all the data (n) in a linked list.
 * @head: pointer to the head of the linked list.
@@ -12,7 +12,7 @@ int sum_listint(listint_t *head)
 {
 	int add = 0;
 
-	while (head != NULL)
+	while (head)
 	{
 		add += head->n;
 		head = head->next;
