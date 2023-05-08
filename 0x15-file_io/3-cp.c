@@ -1,4 +1,8 @@
-#include "main.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
 
 
 void check_IO_stat(int stat, int fd, char *filename, char mode);
@@ -22,14 +26,14 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	src = open(argv[1], O_RDONLY);
-	check_IO_stat(src, -1, argv[1], '0');
+	check_IO_stat(src, -1, argv[1], 'O');
 	dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	check_IO_stat(dest, -1, argv[2], 'W');
-	while (n_read == -1)
+	while (n_read == 1024)
 	{
 		n_read = read(src, buffer, sizeof(buffer));
 		if (n_read == -1)
-			check_IO_stat(-1, -1, argv[2], 'W');
+			check_IO_stat(-1, -1, argv[1], 'O');
 		wrote = write(dest, buffer, n_read);
 		if (wrote == -1)
 			check_IO_stat(-1, -1, argv[2], 'W');
@@ -42,7 +46,8 @@ int main(int argc, char *argv[])
 }
 
 /**
-* check_IO_stat - checks if a file can be opened/closed.
+* check_IO_stat - A helper function that checks if
+* a file can be opened/closed.
 * @stat: file descriptor of the file being openned.
 * @filename: name of the file.
 * @mode: closing or opening.
@@ -56,7 +61,7 @@ void check_IO_stat(int stat, int fd, char *filename, char mode)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	else if (mode == '0' && stat == -1)
+	else if (mode == 'O' && stat == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(98);
