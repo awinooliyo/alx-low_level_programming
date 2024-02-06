@@ -23,13 +23,12 @@ int jump_search(int *array, size_t size, int value)
 		block += step;
 	}
 
-
 	printf("Value found between indexes [%ld] and [%ld]\n", i, block);
 
 	block = block < size - 1 ? block : size - 1;
 	for (; i < block  && array[i] < value; i++)
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-	printf("Value checked array [%ld] = [%d]\n", i, array[i]);
+	printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 
 	return (array[i] == value ? (int)i : -1);
 }
