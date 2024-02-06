@@ -16,16 +16,23 @@
 int linear_search(int *array, size_t size, int value)
 {
     size_t i = 0;
-
+    
+    /* Checking for the null array */
     if (array == NULL)
-        return (-1);
-
-    for (i = 0; i < size; ++i)
     {
-        printf("Value checked array[%lu] = %d\n", i, array[i]);
+        return (-1);
+    }
 
+    /*Iterate through the array */
+    for (i = 0; i < size; i++)
+    {
+        /* Printing the compared value */
+        printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+
+        /* If the value is found, return index */
         if (array[i] == value)
             return (i);
     }
+    /* If the value is not found, return -1 */
     return (-1);
 }
